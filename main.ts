@@ -136,6 +136,32 @@ export default class ColoredTagsPlugin extends Plugin {
 	): { background: string; color: string } {
 		const chunks = input.split("/");
 		let combinedTag = '';
+		
+		// console.log(input.toLowerCase());
+		if (input.toLowerCase().startsWith("intranda")){
+			const background = 'lch(55 121.43 42.57 / 0.32)';
+			const color = 'lch(40 100.22 43.45)';	
+			return {background, color};
+		}
+		
+		if (input.toLowerCase().startsWith("todo")){
+			const background = 'lch(57 82 47)';
+			const color = 'lch(100 0 360)';	
+			return {background, color};
+		}
+		
+		if (input.toLowerCase().startsWith("action")){
+			const background = 'lch(57 82 47)';
+			const color = 'lch(100 0 360)';	
+			return {background, color};
+		}
+		
+		if (input.toLowerCase().startsWith("done") ||
+			input.toLowerCase().startsWith("erledigt")){
+			const background = 'lch(92 0 124)';
+			const color = 'lch(70 0 124)';	
+			return {background, color};
+		}
 		const background =
 			chunks
 				.reduce((acc, chunk, i) => {
